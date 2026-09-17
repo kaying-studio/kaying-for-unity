@@ -1,0 +1,53 @@
+{
+  "author": {
+    "name": "Unity Technologies",
+    "url": "https://unity.com"
+  },
+  "description": "Unity's official plugin for Codex, with curated skills for game development, monetization, and performance optimization.",
+  "homepage": "https://unity.com",
+  "interface": {
+    "brandColor": "#000000",
+    "brandColorDark": "#FFFFFF",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "category": "Developer Tools",
+    "composerIcon": "./.codex-plugin/assets/composer-icon.png",
+    "composerIconDark": "./.codex-plugin/assets/composer-icon-dark.png",
+    "defaultPrompt": [
+      "Set up a tilemap level with rule tiles for my 2D Unity game.",
+      "Help me implement in-app purchases and set up ad mediation with LevelPlay.",
+      "Set up multiplayer lobbies and networking for my Unity game."
+    ],
+    "developerName": "Unity Technologies",
+    "displayName": "Unity",
+    "logo": "./.codex-plugin/assets/logo.png",
+    "logoDark": "./.codex-plugin/assets/logo-dark.png",
+    "longDescription": "Use Unity curated skills to develop your game, connect monetization, and optimize performance across platforms.",
+    "privacyPolicyURL": "https://unity.com/legal/privacy-policy",
+    "shortDescription": "Build, monetize, tune games",
+    "termsOfServiceURL": "https://unity.com/legal/terms-of-service",
+    "websiteURL": "https://unity.com"
+  },
+  "keywords": [
+    "unity",
+    "gamedev",
+    "game-development",
+    "ui-toolkit",
+    "ugui",
+    "2d",
+    "tilemap",
+    "in-app-purchases",
+    "monetization",
+    "localization",
+    "multiplayer",
+    "shader-graph"
+  ],
+  "license": "LicenseRef-Unity-Companion-License",
+  "name": "unity",
+  "requires_local_executor": true,
+  "skills": "./skills/",
+  "version": "0.1.6-beta"
+}

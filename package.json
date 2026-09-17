@@ -1,0 +1,44 @@
+{
+  "name": "unity-plugin-for-pi",
+  "version": "0.1.6-beta",
+  "description": "Unity's official plugin for the Pi coding agent — curated skills for game development, monetization, and performance optimization. Pi port of Unity-Technologies/unity-agent-plugin.",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "type": "module",
+  "keywords": [
+    "pi-package",
+    "unity",
+    "gamedev",
+    "game-development",
+    "ui-toolkit",
+    "ugui",
+    "2d",
+    "tilemap",
+    "in-app-purchases",
+    "monetization",
+    "localization",
+    "multiplayer",
+    "shader-graph"
+  ],
+  "pi": {
+    "skills": [
+      "./skills"
+    ],
+    "extensions": [
+      "./extensions/unity.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "typebox": "*"
+  },
+  "files": [
+    "skills",
+    "extensions",
+    ".pi-plugin",
+    ".codex-plugin",
+    ".claude-plugin",
+    "assets",
+    "README.md",
+    "LICENSE.md"
+  ]
+}

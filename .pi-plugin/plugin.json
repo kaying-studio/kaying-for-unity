@@ -1,0 +1,58 @@
+{
+  "name": "unity",
+  "displayName": "Unity",
+  "version": "0.1.6-beta",
+  "description": "Unity's official plugin for Pi, with curated skills for game development, monetization, and performance optimization.",
+  "author": {
+    "name": "Unity Technologies",
+    "url": "https://unity.com"
+  },
+  "homepage": "https://unity.com",
+  "license": "LicenseRef-Unity-Companion-License",
+  "keywords": [
+    "pi-package",
+    "unity",
+    "gamedev",
+    "game-development",
+    "ui-toolkit",
+    "ugui",
+    "2d",
+    "tilemap",
+    "in-app-purchases",
+    "monetization",
+    "localization",
+    "multiplayer",
+    "shader-graph"
+  ],
+  "harness": "pi",
+  "pi": {
+    "skills": "./skills/",
+    "extensions": [
+      "./extensions/unity.ts"
+    ],
+    "packageManifest": "./package.json"
+  },
+  "interface": {
+    "displayName": "Unity",
+    "shortDescription": "Build, monetize, tune games",
+    "longDescription": "Use Unity curated skills to develop your game, connect monetization, and optimize performance across platforms.",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "requiresLocalExecutor": true,
+    "defaultPrompt": [
+      "Set up a tilemap level with rule tiles for my 2D Unity game.",
+      "Help me implement in-app purchases and set up ad mediation with LevelPlay.",
+      "Set up multiplayer lobbies and networking for my Unity game."
+    ],
+    "logo": "./assets/unity.svg",
+    "logoSmall": "./assets/unity-small.svg",
+    "composerIcon": "./.codex-plugin/assets/composer-icon.png",
+    "composerIconDark": "./.codex-plugin/assets/composer-icon-dark.png"
+  },
+  "skills": "./skills/",
+  "requires_local_executor": true
+}
