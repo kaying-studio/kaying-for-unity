@@ -1,6 +1,6 @@
 {
   "name": "unity",
-  "displayName": "Unity",
+  "displayName": "kaying-for-unity",
   "version": "0.1.6-beta",
   "description": "Unity's official plugin for Pi, with curated skills for game development, monetization, and performance optimization.",
   "author": {
@@ -33,7 +33,7 @@
     "packageManifest": "./package.json"
   },
   "interface": {
-    "displayName": "Unity",
+    "displayName": "kaying-for-unity",
     "shortDescription": "Build, monetize, tune games",
     "longDescription": "Use Unity curated skills to develop your game, connect monetization, and optimize performance across platforms.",
     "category": "Developer Tools",
