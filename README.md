@@ -1,5 +1,7 @@
 # Unity
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 Unity's official game development plugin. Build, monetize, and operate Unity games
 with guidance grounded in Unity's documented practices.
 
@@ -11,39 +13,39 @@ Available for **Claude Code**, **Codex**, and **Pi**.
 session rather than in a terminal:
 
 ```
-/plugin marketplace add Unity-Technologies/unity-agent-plugin
+/plugin marketplace add kaying-studio/kaying-for-unity
 ```
 
 ```
-/plugin install unity@unity-agent-plugin
+/plugin install unity@kaying-for-unity
 ```
 
 From a terminal instead, use the `claude` CLI. Installs done this way load the next
 time you start Claude Code, or when you run `/reload-plugins` in an open session:
 
 ```bash
-claude plugin marketplace add Unity-Technologies/unity-agent-plugin
-claude plugin install unity@unity-agent-plugin
+claude plugin marketplace add kaying-studio/kaying-for-unity
+claude plugin install unity@kaying-for-unity
 ```
 
 **Codex**
 
 ```bash
-codex plugin marketplace add Unity-Technologies/unity-agent-plugin
+codex plugin marketplace add kaying-studio/kaying-for-unity
 ```
 
 ```bash
-codex plugin add unity@unity-agent-plugin
+codex plugin add unity@kaying-for-unity
 ```
 
 **Pi** — Pi loads packages that declare a `pi` manifest in `package.json` plus the
 `pi-package` keyword. Install from a local checkout, npm, or git:
 
 ```bash
-pi install /absolute/path/to/unity-plugin-for-pi
-# or:  pi install ./unity-plugin-for-pi        (relative to your project)
-# or:  pi install npm:unity-plugin-for-pi
-# or:  pi install git:github.com/Unity-Technologies/unity-agent-plugin
+pi install /absolute/path/to/kaying-for-unity
+# or:  pi install ./kaying-for-unity           (relative to your project)
+# or:  pi install npm:kaying-for-unity
+# or:  pi install git:github.com/kaying-studio/kaying-for-unity
 ```
 
 `install` writes to user settings (`~/.pi/agent/settings.json`); pass `-l` to write to
@@ -51,7 +53,7 @@ project settings (`.pi/settings.json`) so the whole team shares it. To try it fo
 single run without installing:
 
 ```bash
-pi -e ./unity-plugin-for-pi
+pi -e ./kaying-for-unity
 ```
 
 The Pi port wires the plugin in three places (see `extensions/unity.ts` and
@@ -77,7 +79,7 @@ also shows `unity` as installed and enabled.
 
 ```
 PLUGIN                    STATUS              VERSION
-unity@unity-agent-plugin  installed, enabled  0.1.6-beta
+unity@kaying-for-unity  installed, enabled  0.1.6-beta
 ```
 
 **Pi** — run `pi list` to see the package, then inside a session type `/unity skills`
@@ -92,19 +94,19 @@ skills directory instead.
 **Claude Code:**
 
 ```bash
-git clone https://github.com/Unity-Technologies/unity-agent-plugin.git
-ln -s "$(pwd)/unity-agent-plugin" ~/.claude/skills/unity
+git clone https://github.com/kaying-studio/kaying-for-unity.git
+ln -s "$(pwd)/kaying-for-unity" ~/.claude/skills/unity
 ```
 
 **Pi** — link it into Pi's global skills directory, or add the path to `settings.json`:
 
 ```bash
-ln -s "$(pwd)/unity-agent-plugin" ~/.pi/agent/skills/unity
+ln -s "$(pwd)/kaying-for-unity" ~/.pi/agent/skills/unity
 ```
 
 ```json
 {
-  "skills": ["/path/to/unity-plugin-for-pi/skills"]
+  "skills": ["/path/to/kaying-for-unity/skills"]
 }
 ```
 

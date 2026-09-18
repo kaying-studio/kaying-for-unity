@@ -39,6 +39,7 @@
     ".claude-plugin",
     "assets",
     "README.md",
+    "README.zh-CN.md",
     "LICENSE.md"
   ]
 }
