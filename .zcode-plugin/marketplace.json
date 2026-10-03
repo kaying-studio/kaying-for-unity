@@ -1,0 +1,40 @@
+{
+  "name": "kaying-for-unity-marketplace",
+  "plugins": [
+    {
+      "name": "unity",
+      "source": {
+        "source": "directory",
+        "path": "D:/code/kaying-office/kaying-for-unity"
+      },
+      "version": "0.1.6-beta",
+      "description": "Unity's official game development plugin, ported for ZCode. Build, monetize, and operate Unity games with guidance grounded in Unity's documented practices.",
+      "displayName": "kaying-for-unity",
+      "description_i18n": {
+        "zh-CN": "Unity 官方游戏开发插件（ZCode 移植版）。以 Unity 官方文档实践为依据，帮助你开发、变现和运营 Unity 游戏，内含 31 个覆盖 UI、2D/Tilemap、导航、物理、渲染、音频、多人联机、内购变现、本地化与性能优化的技能。",
+        "en-US": "Unity's official game development plugin, ported for ZCode. Build, monetize, and operate Unity games with guidance grounded in Unity's documented practices."
+      },
+      "category": "developer-tools",
+      "keywords": [
+        "unity",
+        "gamedev",
+        "游戏开发",
+        "Unity技能",
+        "tilemap",
+        "URP",
+        "shader-graph",
+        "in-app-purchases",
+        "multiplayer",
+        "localization"
+      ],
+      "examplePrompts": [
+        "Set up a tilemap level with rule tiles for my 2D Unity game.",
+        "Help me implement in-app purchases and set up ad mediation with LevelPlay.",
+        "Set up multiplayer lobbies and networking for my Unity game.",
+        "为我的 2D Unity 游戏搭建带规则瓦片（RuleTile）的关卡。",
+        "帮我接入 Unity 内购（IAP），并用 LevelPlay 配置广告聚合。",
+        "把我的项目从内置渲染管线迁移到 URP。"
+      ]
+    }
+  ]
+}

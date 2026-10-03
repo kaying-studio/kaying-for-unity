@@ -37,6 +37,7 @@
     ".pi-plugin",
     ".codex-plugin",
     ".claude-plugin",
+    ".zcode-plugin",
     "assets",
     "README.md",
     "README.zh-CN.md",

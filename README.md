@@ -5,7 +5,7 @@
 Unity's official game development plugin. Build, monetize, and operate Unity games
 with guidance grounded in Unity's documented practices.
 
-Available for **Claude Code**, **Codex**, and **Pi**.
+Available for **Claude Code**, **Codex**, **Pi**, and **ZCode**.
 
 ## Install
 
@@ -68,6 +68,17 @@ The Pi port wires the plugin in three places (see `extensions/unity.ts` and
 - **`.pi-plugin/`** — the Pi-side manifest, mirroring the existing `.claude-plugin/`
   (Claude Code) and `.codex-plugin/` (Codex) manifests.
 
+**ZCode** — ZCode's plugin manifest and marketplace manifest both live in this
+repository's `.zcode-plugin/` directory (`plugin.json` is the plugin manifest,
+`marketplace.json` is the local test marketplace manifest). In the ZCode client:
+**Plugin Marketplace (Discover tab) → `+` Add Marketplace**, paste the
+`.zcode-plugin` directory path (e.g.
+`D:\code\kaying-office\kaying-for-unity\.zcode-plugin`) or the file path of its
+`marketplace.json`, then find **kaying-for-unity** in the market and click
+**Install**. Note: `source.path` in `marketplace.json` is an absolute path pointing
+at the repository root (ZCode does not allow `..` references outside the marketplace
+for security reasons), so update it if the repository moves.
+
 ### Verify it worked
 
 Each agent surfaces an installed plugin differently.
@@ -85,6 +96,11 @@ unity@kaying-for-unity  installed, enabled  0.1.6-beta
 **Pi** — run `pi list` to see the package, then inside a session type `/unity skills`
 to enumerate the bundled skills. `/unity doctor` reports whether the current directory
 is a Unity project and whether the `unity` CLI is on `PATH`.
+
+**ZCode** — open **Settings → Plugin Management** and confirm `unity` shows as enabled
+on the Installed tab. In a session, type `/` or check **Settings → Skills**: the
+`unity:`-prefixed skills (e.g. `unity:unity-cli`, `unity:ui-ugui`) should be listed.
+The plugin is enabled by default and triggers automatically on Unity-related requests.
 
 ### Manual install
 

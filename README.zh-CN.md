@@ -5,7 +5,7 @@
 Unity 官方游戏开发插件。基于 Unity 的官方实践文档，帮助你构建、变现和运营
 Unity 游戏。
 
-支持 **Claude Code**、**Codex** 和 **Pi**。
+支持 **Claude Code**、**Codex**、**Pi** 和 **ZCode**。
 
 ## 安装
 
@@ -65,6 +65,16 @@ Pi 移植版在三处接入了插件（参见 `extensions/unity.ts` 和 `.pi-plu
 - **`.pi-plugin/`** —— Pi 端清单，对应已有的 `.claude-plugin/`（Claude Code）
   和 `.codex-plugin/`（Codex）清单。
 
+**ZCode** —— ZCode 的插件清单与市场清单都收敛在本仓库的 `.zcode-plugin/` 目录内
+（`plugin.json` 为插件清单，`marketplace.json` 为本地测试市场清单）。在 ZCode
+客户端中：**插件市场（Discover 页）→ `+` 添加市场**，在输入框粘贴
+`.zcode-plugin` 目录路径（例如
+`D:\code\kaying-office\kaying-for-unity\.zcode-plugin`）或其中
+`marketplace.json` 的文件路径，添加后在市场中找到 **kaying-for-unity** 点击
+**安装** 即可。注意：`marketplace.json` 里的 `source.path` 是指向仓库根目录的
+本机绝对路径（ZCode 出于安全不允许市场清单用 `..` 引用外部目录），仓库移动位置
+后需要同步修改该路径。
+
 ### 验证安装是否成功
 
 不同 agent 展示已安装插件的方式不同。
@@ -82,6 +92,11 @@ unity@kaying-for-unity  installed, enabled  0.1.6-beta
 **Pi** —— 运行 `pi list` 查看包，然后在会话中输入 `/unity skills` 列出内置技能。
 `/unity doctor` 会报告当前目录是否是 Unity 项目，以及 `unity` CLI 是否在 `PATH`
 中。
+
+**ZCode** —— 打开 **设置 → 插件管理**，在「已安装」页确认 `unity` 显示为已启用；
+在会话中输入 `/` 或查看 **设置 → 技能**，应能看到 `unity:` 前缀下的技能（如
+`unity:unity-cli`、`unity:ui-ugui`）。安装后默认启用，当你在 Unity 项目里提出相关
+请求时会自动触发。
 
 ### 手动安装
 
