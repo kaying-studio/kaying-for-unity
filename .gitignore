@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
+
+# Build output — regenerate with `npm run build:workbuddy`.
+dist/
+
+# Local agent workspace (session memory, not project content).
+.workbuddy-ai/

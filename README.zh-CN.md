@@ -5,7 +5,7 @@
 Unity 官方游戏开发插件。基于 Unity 的官方实践文档，帮助你构建、变现和运营
 Unity 游戏。
 
-支持 **Claude Code**、**Codex**、**Pi** 和 **ZCode**。
+支持 **Claude Code**、**Codex**、**Pi**、**ZCode** 与 **WorkBuddy**。
 
 ## 安装
 
@@ -75,6 +75,40 @@ Pi 移植版在三处接入了插件（参见 `extensions/unity.ts` 和 `.pi-plu
 本机绝对路径（ZCode 出于安全不允许市场清单用 `..` 引用外部目录），仓库移动位置
 后需要同步修改该路径。
 
+**WorkBuddy** —— WorkBuddy 的插件体系与 CodeBuddy 兼容，因此 WorkBuddy 版是 `for-workbuddy/`
+下一个自包含的插件市场：插件 `unity`，内含 31 个技能、两个斜杠命令与一条常驻规则。
+在桌面端打开 **插件 → + → 添加插件市场**，选择 `for-workbuddy` 目录，然后在 *个人* 分区
+安装 **unity**。命令行方式：
+
+```bash
+codebuddy plugin marketplace add ./for-workbuddy
+codebuddy plugin install unity kaying-for-unity-marketplace
+```
+
+只想试用、不安装，可直接加载插件：
+
+```bash
+codebuddy --plugin-dir ./for-workbuddy/plugins/unity
+```
+
+开放平台（**开放平台 → 发布管理 → 技能**）只需上传一个压缩包：
+
+```bash
+npm run build:workbuddy     # → dist/unity.zip
+```
+
+开放平台**一个压缩包只接受一个技能，且最多两级目录**（`{skill-name}/SKILL.md`）。它的解析器
+不递归，所以 31 个技能既不能塞进同一个 zip 的 31 个目录里，也不能用
+`plugins/<name>/skills/<skill>/SKILL.md`（四级）这种插件树。因此 31 个技能被发布为**一个总入口
+技能**：`unity/SKILL.md` 负责判定领域并加载对应的原子技能，各原子技能的指令与随附文件被平铺进
+`references/`、`templates/`、`scripts/`，用 `<skill>--` 前缀区分归属。
+
+`for-workbuddy/plugins/unity/skills/` 与 `for-workbuddy/umbrella/unity/` 都由本仓库的 `skills/`
+生成——改动技能后执行 `npm run build:workbuddy` 同步，CI 中可用 `npm run check:workbuddy`
+检查是否漂移。
+
+包结构与上传步骤见 [for-workbuddy/README.md](for-workbuddy/README.md)。
+
 ### 验证安装是否成功
 
 不同 agent 展示已安装插件的方式不同。
@@ -98,6 +132,10 @@ unity@kaying-for-unity  installed, enabled  0.1.6-beta
 `unity:unity-cli`、`unity:ui-ugui`）。安装后默认启用，当你在 Unity 项目里提出相关
 请求时会自动触发。
 
+**WorkBuddy** —— 打开 **插件**，确认 `unity` 已安装并启用。会话中执行 `/unity:skills`
+可列出内置技能，`/unity:doctor` 会检查当前目录是否为 Unity 项目及其编辑器版本。常驻规则
+会在 Unity 相关请求上自动触发对应技能。
+
 ### 手动安装
 
 如果无法使用 marketplace/install 命令，可以把代码链接到你的个人技能目录。
@@ -119,6 +157,12 @@ ln -s "$(pwd)/kaying-for-unity" ~/.pi/agent/skills/unity
 {
   "skills": ["/path/to/kaying-for-unity/skills"]
 }
+```
+
+**WorkBuddy** —— 改为把技能目录软链到 WorkBuddy 的用户技能目录：
+
+```bash
+ln -s "$(pwd)/kaying-for-unity/skills" ~/.workbuddy/skills/unity
 ```
 
 从下一次会话开始，它会在每个项目中自动加载。
@@ -144,6 +188,7 @@ ln -s "$(pwd)/kaying-for-unity" ~/.pi/agent/skills/unity
 
 在 Claude Code 中，技能也会出现在斜杠菜单里；在 **Pi** 中它们注册为
 `/skill:<name>` 命令，因此你可以显式选择技能，而不必用文字描述任务。
+WorkBuddy 则以 `/unity:<name>` 命令暴露，另有 `/unity:skills` 与 `/unity:doctor`。
 
 ## 适用环境
 

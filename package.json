@@ -17,7 +17,9 @@
     "monetization",
     "localization",
     "multiplayer",
-    "shader-graph"
+    "shader-graph",
+    "workbuddy-plugin",
+    "codebuddy-plugin"
   ],
   "pi": {
     "skills": [
@@ -26,6 +28,10 @@
     "extensions": [
       "./extensions/unity.ts"
     ]
+  },
+  "scripts": {
+    "build:workbuddy": "node scripts/build-workbuddy.mjs",
+    "check:workbuddy": "node scripts/build-workbuddy.mjs --check"
   },
   "peerDependencies": {
     "@earendil-works/pi-coding-agent": "*",
@@ -38,6 +44,8 @@
     ".codex-plugin",
     ".claude-plugin",
     ".zcode-plugin",
+    "for-workbuddy",
+    "scripts/build-workbuddy.mjs",
     "assets",
     "README.md",
     "README.zh-CN.md",

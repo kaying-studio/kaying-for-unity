@@ -1,0 +1,43 @@
+{
+  "name": "kaying-for-unity-marketplace",
+  "description": "WorkBuddy plugins from the kaying-for-unity project: Unity's official game-development skills — 31 skills covering UI (UI Toolkit / uGUI / IMGUI), the full 2D and Tilemap set, AI navigation, 3D physics, URP migration and post-processing, sprite editing, Shader Graph custom nodes, audio and TextMeshPro optimization, multiplayer and Vivox voice, IAP and LevelPlay ads, Unity Services live-ops, localization, and Unity CLI / Editor automation.",
+  "version": "0.1.6-beta",
+  "owner": {
+    "name": "Unity Technologies",
+    "url": "https://unity.com"
+  },
+  "plugins": [
+    {
+      "name": "unity",
+      "source": "./plugins/unity",
+      "displayName": "kaying-for-unity",
+      "description": "Unity's official game development plugin, packaged for WorkBuddy. Build, monetize, and operate Unity games with guidance grounded in Unity's documented practices. 31 skills spanning UI (uGUI / UI Toolkit / IMGUI), the full 2D and Tilemap set, AI navigation, 3D physics, URP migration and post-processing, sprite editing, Shader Graph custom nodes, audio and TextMeshPro optimization, multiplayer and Vivox voice chat, in-app purchases and LevelPlay ad mediation, Unity Services live-ops, localization, and Unity CLI / Editor automation.",
+      "description_i18n": {
+        "zh-CN": "Unity 官方游戏开发插件（WorkBuddy 版）。以 Unity 官方文档实践为依据，帮助你开发、变现和运营 Unity 游戏，内含 31 个技能，覆盖 UI（uGUI / UI Toolkit / IMGUI）、完整 2D 与 Tilemap 工具集、AI 导航、3D 物理、URP 迁移与后处理、精灵编辑、Shader Graph 自定义节点、音频与 TextMeshPro 优化、多人联机与 Vivox 语音、内购与 LevelPlay 广告聚合、Unity Services 在线运营、本地化，以及 Unity CLI 与编辑器自动化。",
+        "en-US": "Unity's official game development plugin, packaged for WorkBuddy. Build, monetize, and operate Unity games with guidance grounded in Unity's documented practices. 31 skills spanning UI (uGUI / UI Toolkit / IMGUI), the full 2D and Tilemap set, AI navigation, 3D physics, URP migration and post-processing, sprite editing, Shader Graph custom nodes, audio and TextMeshPro optimization, multiplayer and Vivox voice chat, in-app purchases and LevelPlay ad mediation, Unity Services live-ops, localization, and Unity CLI / Editor automation."
+      },
+      "version": "0.1.6-beta",
+      "author": {
+        "name": "Unity Technologies",
+        "url": "https://unity.com"
+      },
+      "homepage": "https://unity.com",
+      "repository": "https://github.com/kaying-studio/kaying-for-unity",
+      "license": "LicenseRef-Unity-Companion-License",
+      "keywords": [
+        "unity",
+        "gamedev",
+        "游戏开发",
+        "Unity技能",
+        "ui-toolkit",
+        "tilemap",
+        "urp",
+        "shader-graph",
+        "in-app-purchases",
+        "multiplayer",
+        "localization"
+      ],
+      "category": "开发工具"
+    }
+  ]
+}

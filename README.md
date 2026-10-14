@@ -5,7 +5,7 @@
 Unity's official game development plugin. Build, monetize, and operate Unity games
 with guidance grounded in Unity's documented practices.
 
-Available for **Claude Code**, **Codex**, **Pi**, and **ZCode**.
+Available for **Claude Code**, **Codex**, **Pi**, **ZCode**, and **WorkBuddy**.
 
 ## Install
 
@@ -79,6 +79,44 @@ repository's `.zcode-plugin/` directory (`plugin.json` is the plugin manifest,
 at the repository root (ZCode does not allow `..` references outside the marketplace
 for security reasons), so update it if the repository moves.
 
+**WorkBuddy** — WorkBuddy's plugin system is CodeBuddy-compatible, so the WorkBuddy build is a
+self-contained plugin marketplace under `for-workbuddy/`: the plugin `unity` with its 31
+skills, two slash commands and an always-on rule. In the desktop app open
+**插件 → + → 添加插件市场** and point it at the `for-workbuddy` directory, then install
+**unity** from the *个人* section. From the CLI:
+
+```bash
+codebuddy plugin marketplace add ./for-workbuddy
+codebuddy plugin install unity kaying-for-unity-marketplace
+```
+
+To try it without installing, load the plugin directly:
+
+```bash
+codebuddy --plugin-dir ./for-workbuddy/plugins/unity
+```
+
+For the **open platform** (开放平台 → 发布管理 → 技能) the build produces one uploadable
+archive:
+
+```bash
+npm run build:workbuddy     # → dist/unity.zip
+```
+
+The open platform accepts **one skill per archive, at most two directory levels deep**
+(`{skill-name}/SKILL.md`). It does not recurse, so the 31 skills cannot be published as 31
+folders inside one zip — nor as a `plugins/<name>/skills/<skill>/SKILL.md` tree, which is four
+levels. They are published as a single **umbrella skill** instead: `unity/SKILL.md` routes a
+request to the right atomic skill, whose instructions and attachments are flattened into
+`references/`, `templates/` and `scripts/` under a `<skill>--` filename prefix.
+
+`for-workbuddy/plugins/unity/skills/` and `for-workbuddy/umbrella/unity/` are both generated
+from this repository's `skills/` — run `npm run build:workbuddy` after changing a skill, and
+`npm run check:workbuddy` in CI to catch drift.
+
+See [for-workbuddy/README.md](for-workbuddy/README.md) for the package layout and the upload
+steps.
+
 ### Verify it worked
 
 Each agent surfaces an installed plugin differently.
@@ -101,6 +139,11 @@ is a Unity project and whether the `unity` CLI is on `PATH`.
 on the Installed tab. In a session, type `/` or check **Settings → Skills**: the
 `unity:`-prefixed skills (e.g. `unity:unity-cli`, `unity:ui-ugui`) should be listed.
 The plugin is enabled by default and triggers automatically on Unity-related requests.
+
+**WorkBuddy** — open **插件** and confirm `unity` shows as installed and enabled. In a session
+run `/unity:skills` to list the bundled skills, or `/unity:doctor` to check whether the
+current directory is a Unity project and which editor version it uses. The always-on rule
+triggers the right skill automatically on Unity-related requests.
 
 ### Manual install
 
@@ -126,6 +169,12 @@ ln -s "$(pwd)/kaying-for-unity" ~/.pi/agent/skills/unity
 }
 ```
 
+**WorkBuddy** — link the skills into WorkBuddy's user skills directory instead:
+
+```bash
+ln -s "$(pwd)/kaying-for-unity/skills" ~/.workbuddy/skills/unity
+```
+
 It loads automatically in every project from your next session onward.
 
 ## Usage
@@ -149,6 +198,7 @@ do something in your Unity project. For example:
 
 In Claude Code the skills also appear in the slash menu, and in **Pi** they register as
 `/skill:<name>` commands, so you can pick one explicitly instead of describing the task.
+WorkBuddy exposes them as `/unity:<name>` commands plus `/unity:skills` and `/unity:doctor`.
 
 ## Works with
 
